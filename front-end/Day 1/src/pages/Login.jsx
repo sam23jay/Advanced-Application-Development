@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "../assets/css/LoginOrg.css";
 import { Label } from "reactstrap";
-import yourLogo from "../assets/images/harmony-logo.png";
-
+import yourLogo from "../assets/images/giftcraft.png";
+import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook from React Router
+
 const Login = () => {
+  const navigate = useNavigate(); // Initialize the navigate function from useNavigate hook
+
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,9 +29,13 @@ const Login = () => {
       setErrors(validationErrors);
       return;
     }
+    // Navigate to "/explore" when "Sign In" button is clicked
+    navigate("/explore");
   };
 
-  const handleCreateAccountClick = () => {};
+  const handleCreateAccountClick = () => {
+    navigate("/signup"); // Navigate to "/signup" when "Create an Account" link is clicked
+  };
 
   const toggleSkill = (skillId) => {
     if (selectedSkills.includes(skillId)) {
@@ -39,6 +47,7 @@ const Login = () => {
 
   return (
     <div>
+      <NavBar />
       <div className="login-vol-login-page">
         <div className="login-vol-background-image"></div>
         <div className="login-vol-login-container">
@@ -50,9 +59,9 @@ const Login = () => {
                 className="login-vol-logo"
                 style={{ width: "60px", height: "auto", marginBottom: "20px" }}
               />
-              <div className="logo-text">Gift Marketplace</div>
+              <div className="logo-text">GiftCraft</div>
             </div>
-            <div className="abov-text">
+            <div className="abov-text" style={{ color: "black" }}>
               <h3>Welcome to Your Gift Store!👋🏻</h3>
               <p>Please Sign-in to your account and start your journey</p>
             </div>
@@ -62,7 +71,7 @@ const Login = () => {
                   <input
                     type="text"
                     id="username"
-                    className="form-control"
+                    className="form-control23"
                     autoFocus
                     required
                     value={username}
@@ -77,7 +86,7 @@ const Login = () => {
                   <input
                     type={show ? "text" : "password"}
                     id="password"
-                    className="form-control"
+                    className="form-control23"
                     required
                     value={password}
                     onChange={(e) => {

@@ -7,7 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer = () => (
   <footer class="footer" className="position-footer">
-    <div class="container">
+    <div class="containers">
       <div class="row">
         <div class="footer-col">
           <h4>company</h4>

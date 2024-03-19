@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import "../assets/css/Signup.css";
 import { FormGroup, Input, Label } from "reactstrap";
-import yourLogo from "../assets/images/harmony-logo.png";
+import yourLogo from "../assets/images/giftcraft.png";
 import Footer from "../components/Footer";
 import { DatePicker } from "antd";
+import NavBar from "../components/NavBar";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook from React Router
 
 const Signup = () => {
+  const navigate = useNavigate(); // Initialize the navigate function from useNavigate hook
+
   const [gender, setGender] = useState("");
   const [dob, setDob] = useState(null);
   const [username, setUsername] = useState("");
@@ -39,17 +43,21 @@ const Signup = () => {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !password || !gender || !dob || !state) {
+    if (!username || !password) {
       setFormError("All Fields are required");
     } else {
       console.log("Signup successful");
+      navigate("/explore");
     }
   };
 
-  const handleCreateAccountClick = (e) => {};
+  const handleCreateAccountClick = (e) => {
+    navigate("/login");
+  };
 
   return (
     <div>
+      <NavBar />
       <div className="sign-up-vol-sign-up-page">
         <div className="sign-up-vol-background-image"></div>
         <div className="sign-up-vol-sign-up-container">
@@ -61,10 +69,10 @@ const Signup = () => {
                 className="sign-up-vol-logo"
                 style={{ width: "60px", height: "auto", marginBottom: "20px" }}
               />
-              <div className="logo-text">Harmony</div>
+              <div className="logo-text">GiftCraft</div>
             </div>
             <div className="abov-text">
-              <h3>Welcome to Harmony!👋🏻</h3>
+              <h3>Welcome to GiftCraft!👋🏻</h3>
               <p>
                 Unlock the door to limitless journeys! Join us now and be part
                 of this amazing experience.
@@ -77,14 +85,10 @@ const Signup = () => {
                     <input
                       type="text"
                       id="name"
-                      className="form-control"
+                      className="form-control23"
                       autoComplete="off"
                       autoFocus
                       required
-                      value={name}
-                      onChange={(e) => {
-                        setname(e.target.value);
-                      }}
                     />
                     <label className="floating-label">Full Name</label>
                   </div>
@@ -92,7 +96,7 @@ const Signup = () => {
                     <input
                       type="text"
                       id="username"
-                      className="form-control"
+                      className="form-control23"
                       autoComplete="off"
                       autoFocus
                       required
@@ -106,7 +110,7 @@ const Signup = () => {
                     <input
                       type="password"
                       id="password"
-                      className="form-control"
+                      className="form-control23"
                       autoComplete="off"
                       required
                       value={password}
@@ -116,51 +120,18 @@ const Signup = () => {
                   </div>
 
                   <FormGroup>
-                    <Label for="gender">Gender</Label>
-                    <Input
-                      type="select"
-                      name="gender"
-                      id="gender"
-                      value={gender}
-                      onChange={handleGenderChange}
-                    >
-                      <option value="">Select Gender</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                      <option value="other">Other</option>
-                    </Input>
-                  </FormGroup>
-
-                  <FormGroup>
                     <Label for="dob">Date of Birth</Label>
                     <br />
-                    <DatePicker
-                      id="dob"
-                      selected={dob}
-                      onChange={handleDateOfBirthChange}
-                      dateFormat="dd/MM/yyyy"
-                      placeholderText="Select Date of Birth"
-                      showYearDropdown
-                      scrollableYearDropdown
-                      yearDropdownItemNumber={100}
-                      maxDate={new Date()}
-                    />
-                  </FormGroup>
-
-                  <div className="floating-label-group">
                     <input
-                      style={{ marginTop: "25px" }}
-                      type="text"
-                      id="state"
-                      className="form-control"
+                      type="date"
+                      id="username"
+                      className="form-control23"
                       autoComplete="off"
                       autoFocus
                       required
-                      value={state}
-                      onChange={handleStateChange}
                     />
-                    <label className="floating-label">State</label>
-                  </div>
+                  </FormGroup>
+
                   <div className="floating-label-group">
                     <Label className="add-event-label">Description:</Label>
                     <Input

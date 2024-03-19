@@ -1,8 +1,9 @@
-.navbar {
-  background-color: #0f0f0f;
+.navbar1 {
+  background-color: rgb(250, 250, 250);
   height: 60px;
+  color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: 1.2rem;
   position: sticky;
@@ -10,13 +11,9 @@
   z-index: 20;
 }
 
-.nav-container {
+.nav-container1 {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 60px;
-  max-width: 1500px;
 }
 
 .nav-logo {
@@ -34,8 +31,8 @@
 }
 .nav-logo img {
   margin-top: -10px;
-  width: 64px;
-  height: 64px;
+  width: 40px; /* Adjust the width as needed */
+  height: 40px; /* Adjust the height as needed */
 }
 
 .nav-menu {
@@ -72,7 +69,7 @@
 
 .nav-item:hover:after {
   width: 100%;
-  background: #9900ff;
+  background: #f4538a;
 }
 
 .nav-icon {
